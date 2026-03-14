@@ -1,0 +1,15 @@
+{
+    "source_directories": ["."],
+    "search_path": [
+        ".",
+        "C:\\Python314\\Lib\\site-packages",
+        "C:\\Users\\DELL\\AppData\\Roaming\\Python\\Python314\\site-packages"
+    ],
+    "strict": false,
+    "exclude": [
+        ".*/__pycache__/.*",
+        ".*/\\.venv/.*",
+        ".*/node_modules/.*",
+        ".*/\\.pytest_cache/.*"
+    ]
+}

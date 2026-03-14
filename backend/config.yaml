@@ -1,0 +1,18 @@
+assistant:
+  name: "JARVIS-X"
+  language: "en"
+
+llm:
+  default_provider: "lm_studio" # Options: lm_studio, llamacpp, openai
+  model: "local-model" # Typically ignored by local servers as they use whatever is loaded
+  temperature: 0.1 # Low temp for tool-calling reliability
+  max_tokens: 1024
+
+memory:
+  chroma_db_dir: "./chromadb_storage"
+
+security:
+  require_approval_for_commands: true
+  docker_sandbox:
+    enabled: true
+    image: "python:3.11-slim"

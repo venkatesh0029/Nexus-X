@@ -1,0 +1,51 @@
+C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\_api\deprecation.py:25: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+  from pydantic.v1.fields import FieldInfo as FieldInfoV1
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1950.74it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+ERROR:root:Supervisor failed to parse choice, defaulting to system_agent:
+Traceback (most recent call last):
+  File "D:\Projects\JARVIS\backend\agents\supervisor.py", line 38, in supervisor_node
+    response = llm.invoke(prompt.format_prompt(input=last_message))
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\prompts\chat.py", line 730, in format_prompt
+    messages = self.format_messages(**kwargs)
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\prompts\chat.py", line 1190, in format_messages
+    message = message_template.format_messages(**kwargs)
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\prompts\chat.py", line 560, in format_messages
+    return [self.format(**kwargs)]
+            ~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\prompts\chat.py", line 593, in format
+    text = self.prompt.format(**kwargs)
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\prompts\prompt.py", line 201, in format
+    return DEFAULT_FORMATTER_MAPPING[self.template_format](self.template, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\string\__init__.py", line 205, in format
+    return self.vformat(format_string, args, kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\AppData\Roaming\Python\Python314\site-packages\langchain_core\utils\formatting.py", line 48, in vformat
+    return super().vformat(format_string, args, kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\string\__init__.py", line 209, in vformat
+    result, _ = self._vformat(format_string, args, kwargs, used_args, 2)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\string\__init__.py", line 250, in _vformat
+    obj, arg_used = self.get_field(field_name, args, kwargs)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\string\__init__.py", line 315, in get_field
+    obj = self.get_value(first, args, kwargs)
+  File "C:\Python314\Lib\string\__init__.py", line 272, in get_value
+    return kwargs[key]
+           ~~~~~~^^^^^
+KeyError: '"next_agent"'
+
+[VectorStore] Loaded existing FAISS index with 6 memories.
+[SemanticGraph] Loaded explicit facts graph. 0 nodes.
+Invoking supervisor_node...
+Supervisor Result: {'next_agent': 'system_agent'}
