@@ -69,7 +69,7 @@ The system is strictly decoupled: a **FastAPI backend** and a **React/Vite front
 │                        JARVIS-X SYSTEM                          │
 │                                                                 │
 │  ┌──────────────────────┐       WebSocket / REST               │
-│  │   React/Vite ATC     │ ◄──────────────────────────────┐    │
+│  │   React/Vite ATC     │ ◄──────────────────────────────┐     │
 │  │      Dashboard       │                                 │    │
 │  └──────────────────────┘                                 │    │
 │                                                           │    │
