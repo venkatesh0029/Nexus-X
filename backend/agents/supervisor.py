@@ -2,6 +2,7 @@ import json
 import logging
 import traceback
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import SystemMessage
 from backend.llm.factory import LLMFactory
 from .state import AgentState
 
@@ -23,13 +24,13 @@ Available Agents:
 4. vision_agent - CRITICAL: Use THIS agent ANY TIME the user asks to click on the screen, type text into a GUI, control the mouse/keyboard, or visually navigate the physical desktop.
 
 Respond ONLY with a valid JSON object in this exact format, with no markdown formatting or extra text:
-{{"next_agent": "<agent_name>"}}
+{"next_agent": "<agent_name>"}
 
 If the task is complete or you just want to reply directly without invoking a tool, use "FINISH".
 """
 
     prompt = ChatPromptTemplate.from_messages([
-        ("system", system_prompt),
+        SystemMessage(content=system_prompt),
         ("user", "{input}")
     ])
     
@@ -42,7 +43,10 @@ If the task is complete or you just want to reply directly without invoking a to
         
         try:
             decision = json.loads(content)
-            next_agent = decision.get("next_agent", "system_agent")
+            if isinstance(decision, dict):
+                next_agent = decision.get("next_agent", "system_agent")
+            else:
+                next_agent = "system_agent"
         except json.JSONDecodeError:
             # Fallback for weak local models
             import re
