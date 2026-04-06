@@ -13,7 +13,7 @@
 
 <br/>
 
-> **JARVIS-X** is a fully local, zero-trust, ReAct-based AI agent orchestration platform.  
+> **NEXUS-X** is a fully local, zero-trust, ReAct-based AI agent orchestration platform.  
 > Runs directly on Windows hardware — combining a LangGraph backend with a premium  
 > React/Vite dashboard for autonomous tool usage, multi-modal perception, persistent memory, and real-time voice.
 
